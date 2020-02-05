@@ -6,19 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/TVAmount"
-        android:layout_width="58dp"
+        android:layout_width="0dp"
         android:layout_height="23dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="69dp"
-        android:text="Amount"
-        app:layout_constraintBottom_toBottomOf="@+id/ETAmount"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="66dp"
+        android:text="@string/amount"
         app:layout_constraintEnd_toStartOf="@+id/ETAmount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ETAmount"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/TVTip"
@@ -27,7 +25,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="20dp"
-        android:text="Tip %"
+        android:text="@string/tip"
         app:layout_constraintEnd_toStartOf="@+id/SpinnerTip"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVAmount" />
@@ -37,118 +35,109 @@
         android:id="@+id/TVNumPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="39dp"
-        android:text="# people"
+        android:text="@string/people"
         app:layout_constraintEnd_toStartOf="@+id/SpinnerNumPeople"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/SpinnerNumPeople" />
-
+        app:layout_constraintTop_toBottomOf="@+id/TVTip" />
 
     <Spinner
         android:id="@+id/SpinnerNumPeople"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="85dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCalculate"
+        android:layout_width="121dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="105dp"
+        app:layout_constraintBottom_toTopOf="@+id/TVTipIs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TVNumPeople"
-        app:layout_constraintTop_toTopOf="@+id/TVTip"
+        app:layout_constraintTop_toTopOf="@+id/ETTip"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/ETAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="43dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/ETTip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TVAmount"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/TVAmount" />
 
     <Button
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="111dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="110dp"
         android:text="Clear"
-        app:layout_constraintBottom_toTopOf="@+id/TVTipIs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/SpinnerNumPeople" />
+        app:layout_constraintEnd_toEndOf="@+id/ETTip"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="@+id/SpinnerNumPeople"
+        app:layout_constraintTop_toBottomOf="@+id/SpinnerNumPeople" />
 
     <TextView
         android:id="@+id/TVTipIs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="212dp"
-        android:text="Tip is: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btnCalculate" />
+        android:layout_marginTop="44dp"
+        android:text="@string/tip_is"
+        app:layout_constraintStart_toStartOf="@+id/btnCalculate"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
 
     <TextView
         android:id="@+id/TVTotalIs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Total is: "
+        android:text="@string/total_is"
         app:layout_constraintStart_toStartOf="@+id/TVTipIs"
         app:layout_constraintTop_toBottomOf="@+id/TVTipIs" />
 
     <Spinner
         android:id="@+id/SpinnerTip"
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="66dp"
+        android:layout_width="94dp"
+        android:layout_height="37dp"
         android:layout_marginEnd="19dp"
-        android:layout_marginBottom="71dp"
-        app:layout_constraintBottom_toTopOf="@+id/SpinnerNumPeople"
+        app:layout_constraintBottom_toBottomOf="@+id/TVTip"
         app:layout_constraintEnd_toStartOf="@+id/ETTip"
-        app:layout_constraintStart_toEndOf="@+id/TVTip"
-        app:layout_constraintTop_toTopOf="@+id/TVAmount"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/TVTip" />
 
     <EditText
         android:id="@+id/ETTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
+        android:layout_width="147dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="52dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/SpinnerTip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/SpinnerTip"
-        app:layout_constraintTop_toBottomOf="@+id/SpinnerTip"
-        app:layout_constraintVertical_bias="0.8" />
+        tools:layout_editor_absoluteY="168dp" />
 
     <TextView
         android:id="@+id/TVPP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Per person: "
-        app:layout_constraintBaseline_toBaselineOf="@+id/TVPPResult"
-        app:layout_constraintStart_toStartOf="@+id/TVTotalIs" />
+        app:layout_constraintStart_toStartOf="@+id/TVTotalIs"
+        app:layout_constraintTop_toBottomOf="@+id/TVTotalIs" />
 
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp"
+        android:layout_marginTop="100dp"
         android:text="Calculate"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnClear"
-        app:layout_constraintEnd_toStartOf="@+id/ETTip"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/TVTip" />
+        app:layout_constraintStart_toEndOf="@+id/TVNumPeople"
+        app:layout_constraintTop_toBottomOf="@+id/TVNumPeople" />
 
     <TextView
         android:id="@+id/TVTipResult"
@@ -168,6 +157,7 @@
         android:layout_marginBottom="37dp"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/TVPPResult"
+        app:layout_constraintEnd_toStartOf="@+id/TVTipResult"
         app:layout_constraintStart_toStartOf="@+id/TVTipResult" />
 
 
@@ -175,10 +165,12 @@
         android:id="@+id/TVPPResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="107dp"
         android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TVTotalResult"
         app:layout_constraintStart_toStartOf="@+id/TVTotalResult"
-        app:layout_constraintTop_toBottomOf="@+id/TVTotalIs" />
+        app:layout_constraintTop_toTopOf="@+id/TVTipIs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
