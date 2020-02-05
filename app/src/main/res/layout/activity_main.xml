@@ -6,13 +6,179 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
+        android:id="@+id/TVAmount"
+        android:layout_width="58dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="69dp"
+        android:text="Amount"
+        app:layout_constraintBottom_toBottomOf="@+id/ETAmount"
+        app:layout_constraintEnd_toStartOf="@+id/ETAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ETAmount"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/TVTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="20dp"
+        android:text="Tip %"
+        app:layout_constraintEnd_toStartOf="@+id/SpinnerTip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVAmount" />
+
+
+    <TextView
+        android:id="@+id/TVNumPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="39dp"
+        android:text="# people"
+        app:layout_constraintEnd_toStartOf="@+id/SpinnerNumPeople"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/SpinnerNumPeople" />
+
+
+    <Spinner
+        android:id="@+id/SpinnerNumPeople"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="85dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCalculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TVNumPeople"
+        app:layout_constraintTop_toTopOf="@+id/TVTip"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/ETAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TVAmount"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="44dp"
+        android:text="Clear"
+        app:layout_constraintBottom_toTopOf="@+id/TVTipIs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/SpinnerNumPeople" />
+
+    <TextView
+        android:id="@+id/TVTipIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="212dp"
+        android:text="Tip is: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnCalculate" />
+
+    <TextView
+        android:id="@+id/TVTotalIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Total is: "
+        app:layout_constraintStart_toStartOf="@+id/TVTipIs"
+        app:layout_constraintTop_toBottomOf="@+id/TVTipIs" />
+
+    <Spinner
+        android:id="@+id/SpinnerTip"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="71dp"
+        app:layout_constraintBottom_toTopOf="@+id/SpinnerNumPeople"
+        app:layout_constraintEnd_toStartOf="@+id/ETTip"
+        app:layout_constraintStart_toEndOf="@+id/TVTip"
+        app:layout_constraintTop_toTopOf="@+id/TVAmount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/ETTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/SpinnerTip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/SpinnerTip"
+        app:layout_constraintTop_toBottomOf="@+id/SpinnerTip"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/TVPP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Per person: "
+        app:layout_constraintBaseline_toBaselineOf="@+id/TVPPResult"
+        app:layout_constraintStart_toStartOf="@+id/TVTotalIs" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="33dp"
+        android:text="Calculate"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnClear"
+        app:layout_constraintEnd_toStartOf="@+id/ETTip"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/TVTip" />
+
+    <TextView
+        android:id="@+id/TVTipResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="4dp"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/btnClear"
+        app:layout_constraintTop_toBottomOf="@+id/btnClear" />
+
+
+    <TextView
+        android:id="@+id/TVTotalResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/TVPPResult"
+        app:layout_constraintStart_toStartOf="@+id/TVTipResult" />
+
+
+    <TextView
+        android:id="@+id/TVPPResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/TVTotalResult"
+        app:layout_constraintStart_toStartOf="@+id/TVTotalResult"
+        app:layout_constraintTop_toBottomOf="@+id/TVTotalIs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
