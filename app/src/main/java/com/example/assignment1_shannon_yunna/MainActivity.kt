@@ -49,6 +49,8 @@ import kotlinx.android.synthetic.main.activity_main.*
             )
             mySpinnerTip.adapter = myAdapter
 
+
+
             mySpinnerTip.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
 
@@ -153,7 +155,7 @@ import kotlinx.android.synthetic.main.activity_main.*
         val myBtnClear = findViewById<Button>(R.id.btnClear) as Button
         //Button Calculate Listener
         myBtnClear.setOnClickListener() {
-
+            mySpinnerTip.setSelection(0);
 
         }
 
