@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.*
 import android.widget.Toast.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.DecimalFormat
+import java.math.*
 
 //class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -128,6 +130,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
                 //get the input amount
                 choiceAmount = myETAmount.text.toString().toDouble()
+                val choiceAmount2 = String.format("%.2f", choiceAmount).toDouble();
 
                 //get the input tip
                 if(myETTip.isEnabled){
@@ -136,14 +139,14 @@ import kotlinx.android.synthetic.main.activity_main.*
                 }
                 //calculate and display the result of tip and total
 
-                myTipResult.text=(choiceAmount*choiceTip).toString()
+                myTipResult.text=String.format("%.2f", choiceAmount2*choiceTip).toString();
 
-                myTotalResult.text=(choiceAmount*(1+choiceTip)).toString()
+                myTotalResult.text=String.format("%.2f", choiceAmount2*(1+choiceTip)).toString();
 
                 //calculate and display per person
                 if(choicePeople>1){
                      myPerPersonTVLabel.visibility=View.VISIBLE
-                     myPPResult.text=((choiceAmount*(1+choiceTip))/choicePeople).toString()
+                     myPPResult.text=String.format("%.2f",(choiceAmount2*(1+choiceTip))/choicePeople).toString();
                 }
 
             }
