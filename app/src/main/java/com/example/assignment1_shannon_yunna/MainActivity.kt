@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 //class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+
     class MainActivity : AppCompatActivity() {
 
 
@@ -63,7 +64,8 @@ import kotlinx.android.synthetic.main.activity_main.*
                     }
                 }
 
-                override fun onNothingSelected(parent: AdapterView<*>) {
+                override fun onNothingSelected(parent: AdapterView<*>)
+                {
                     // write code to perform some action
                 }
             }
@@ -150,10 +152,14 @@ import kotlinx.android.synthetic.main.activity_main.*
         }
 
         ////////////Clear Button
+
         val myBtnClear = findViewById<Button>(R.id.btnClear) as Button
         //Button Calculate Listener
         myBtnClear.setOnClickListener() {
-
+            ETAmount.text.clear();
+            SpinnerTip.setSelection(0);
+            ETTip.text.clear();
+            SpinnerNumPeople.setSelection(0);
 
         }
 
