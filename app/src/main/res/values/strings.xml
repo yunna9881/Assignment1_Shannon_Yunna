@@ -5,4 +5,27 @@
     <string name="people"># people</string>
     <string name="tip_is">Tip is:</string>
     <string name="total_is">Total is:</string>
+
+    <string name="selected_amount">Selected Amount:</string>
+
+    <string-array name="ArrayTips">
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="ArrayPeople">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
 </resources>
