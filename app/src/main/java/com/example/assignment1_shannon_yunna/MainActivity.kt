@@ -52,6 +52,8 @@ import java.math.*
             )
             mySpinnerTip.adapter = myAdapter
 
+
+
             mySpinnerTip.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
 
@@ -159,10 +161,12 @@ import java.math.*
         val myBtnClear = findViewById<Button>(R.id.btnClear) as Button
         //Button Calculate Listener
         myBtnClear.setOnClickListener() {
+
             ETAmount.text.clear();
             SpinnerTip.setSelection(0);
             ETTip.text.clear();
             SpinnerNumPeople.setSelection(0);
+
 
         }
 
