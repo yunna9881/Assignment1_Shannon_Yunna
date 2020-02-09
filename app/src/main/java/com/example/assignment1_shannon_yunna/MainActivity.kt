@@ -155,7 +155,7 @@ import java.util.*
                 }
 
                  }catch (e: IllegalFormatConversionException){
-                    val myToast = Toast.makeText(getApplicationContext(),"Amount must be a number", Toast.LENGTH_SHORT)
+                    val myToast = Toast.makeText(getApplicationContext(),"must be a number", Toast.LENGTH_SHORT)
                     myToast.show();
 
                 }
