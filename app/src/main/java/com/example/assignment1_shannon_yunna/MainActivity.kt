@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.*
 import android.widget.Toast.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.NumberFormatException
 import java.text.DecimalFormat
 import java.math.*
+import java.util.*
 
 //class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -127,30 +129,36 @@ import java.math.*
             if(myETAmount.text.isEmpty() || myETTip.isEnabled && myETTip.text.isEmpty()){
                 val myToast = Toast.makeText(getApplicationContext(),"Missing Amount and/or Tip", Toast.LENGTH_SHORT)
                 myToast.show();
-            }else{
-                //****need to check first if its a number.... crashes
-
-                //get the input amount
-                choiceAmount = myETAmount.text.toString().toDouble()
-                val choiceAmount2 = String.format("%.2f", choiceAmount).toDouble();
+            }else {
+                try {
+                    //get the input amount
+                    choiceAmount = String.format("%.2f", myETAmount.text.toString()).toDouble()
 
                 //get the input tip
-                if(myETTip.isEnabled){
+                if (myETTip.isEnabled) {
                     choiceTip = myETTip.text.toString().toDouble()
-                    choiceTip/=100.0
+                    choiceTip /= 100.0
                 }
                 //calculate and display the result of tip and total
 
-                myTipResult.text=String.format("%.2f", choiceAmount2*choiceTip).toString();
+                myTipResult.text = String.format("%.2f", choiceAmount * choiceTip).toString();
 
-                myTotalResult.text=String.format("%.2f", choiceAmount2*(1+choiceTip)).toString();
+                myTotalResult.text =
+                    String.format("%.2f", choiceAmount * (1 + choiceTip)).toString();
 
                 //calculate and display per person
-                if(choicePeople>1){
-                     myPerPersonTVLabel.visibility=View.VISIBLE
-                     myPPResult.text=String.format("%.2f",(choiceAmount2*(1+choiceTip))/choicePeople).toString();
+                if (choicePeople > 1) {
+                    myPerPersonTVLabel.visibility = View.VISIBLE
+                    myPPResult.text =
+                        String.format("%.2f", (choiceAmount * (1 + choiceTip)) / choicePeople)
+                            .toString();
                 }
 
+                 }catch (e: IllegalFormatConversionException){
+                    val myToast = Toast.makeText(getApplicationContext(),"Amount must be a number", Toast.LENGTH_SHORT)
+                    myToast.show();
+
+                }
             }
 
 
