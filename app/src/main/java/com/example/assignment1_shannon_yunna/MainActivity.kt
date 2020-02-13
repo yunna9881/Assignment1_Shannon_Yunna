@@ -2,6 +2,8 @@ package com.example.assignment1_shannon_yunna
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.Toast.*
@@ -20,11 +22,11 @@ import java.util.*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+       setSupportActionBar(toolbar)
 
 
         /****************************Amount**********************************/
-        var choiceAmount: Double = 0.0
+        var choiceAmount : Double =0.0
         //Edit Text Amount User Input Resources
         var myETAmount : EditText = findViewById(R.id.ETAmount)
 
@@ -131,9 +133,9 @@ import java.util.*
                 myToast.show();
             }else {
                 try {
-                    //get the input amount
-                    choiceAmount = String.format("%.2f", myETAmount.text.toString()).toDouble()
-
+                    //get the input amount convert to double
+                    //choiceAmount = String.format("%.2f", myETAmount.text.toString()).toDouble()
+                    choiceAmount = myETAmount.text.toString().toDouble()
                 //get the input tip
                 if (myETTip.isEnabled) {
                     choiceTip = myETTip.text.toString().toDouble()
@@ -155,7 +157,7 @@ import java.util.*
                 }
 
                  }catch (e: IllegalFormatConversionException){
-                    val myToast = Toast.makeText(getApplicationContext(),"must be a number", Toast.LENGTH_SHORT)
+                    val myToast = Toast.makeText(getApplicationContext(),"Must be a number", Toast.LENGTH_SHORT)
                     myToast.show();
 
                 }
@@ -174,7 +176,14 @@ import java.util.*
             SpinnerTip.setSelection(0);
             ETTip.text.clear();
             SpinnerNumPeople.setSelection(0);
+            myPerPersonTVLabel.visibility = View.INVISIBLE
 
+
+            myTipResult.text = "";
+
+            myTotalResult.text ="";
+
+            myPPResult.text ="";
 
         }
 
@@ -191,6 +200,20 @@ import java.util.*
 
 
     }
+
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
+            menuInflater.inflate(R.menu.menu_items, menu)
+            return true
+        }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId){
+                R.id.action_about -> {
+                    Toast.makeText(this, "It is made by Shannon and Yunna", Toast.LENGTH_SHORT).show()
+                    return true
+                } else -> return super.onOptionsItemSelected(item)
+            }
+        }
 
 
 }
